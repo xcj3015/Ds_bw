@@ -1,1 +1,1 @@
-include ':app', ':day_01', ':month', ':month2'
+include ':app', ':day_01', ':month', ':month2', ':zhoukao_one'
