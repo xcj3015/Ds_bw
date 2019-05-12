@@ -8,5 +8,6 @@ public interface Presenter {
 
     void doLogin(String phone,String pwd);
     void doRegister(String phone,String pwd);
+    void doCommodity();
 
 }

@@ -41,4 +41,19 @@ public class ModelIml implements Model {
             }
         });
     }
+
+    @Override
+    public void Commodity(String url, CommodityCallback callback) {
+        Volley.get(url, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                callback.onSuccess(response.body().string());
+            }
+        });
+    }
 }

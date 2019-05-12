@@ -16,4 +16,9 @@ public interface Model {
         void onSuccess(String data);
     }
 
+    void Commodity(String url,CommodityCallback callback);
+    interface CommodityCallback{
+        void onSuccess(String data);
+    }
+
 }

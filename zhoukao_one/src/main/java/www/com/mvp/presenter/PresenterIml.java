@@ -3,6 +3,7 @@ package www.com.mvp.presenter;
 import www.com.LoginActivity;
 import www.com.RegisterActivity;
 import www.com.api.Api;
+import www.com.fragment.ListFragment;
 import www.com.mvp.model.Model;
 import www.com.mvp.model.ModelIml;
 
@@ -13,6 +14,7 @@ import www.com.mvp.model.ModelIml;
 public class PresenterIml implements Presenter {
     LoginActivity loginActivity;
     RegisterActivity registerActivity;
+    ListFragment listFragment;
     ModelIml modelIml;
 
     public PresenterIml(LoginActivity loginActivity){
@@ -22,6 +24,11 @@ public class PresenterIml implements Presenter {
 
     public PresenterIml(RegisterActivity registerActivity){
         this.registerActivity = registerActivity;
+        modelIml = new ModelIml();
+    }
+
+    public PresenterIml(ListFragment listFragment){
+        this.listFragment = listFragment;
         modelIml = new ModelIml();
     }
 
@@ -42,6 +49,16 @@ public class PresenterIml implements Presenter {
             @Override
             public void onSuccess(String data) {
                 registerActivity.doRegister(data);
+            }
+        });
+    }
+
+    @Override
+    public void doCommodity() {
+        modelIml.Commodity(Api.list_url, new Model.CommodityCallback() {
+            @Override
+            public void onSuccess(String data) {
+                listFragment.getCommodity(data);
             }
         });
     }
